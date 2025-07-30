@@ -17,11 +17,18 @@ fun CarList(viewModel: CarListViewModel = viewModel())
     val oemList = viewModel.oems
 
     Log.d("Data Received", oemList.toString())
-
+    if(oemList.size!=0)
+    {
     LazyColumn {
-        items(oemList, key = { it.id }) { oem ->
-            Text(text = "OEM ID: ${oem.id} | ${oem.name}")
+
+            items(oemList, key = { it.id }) { oem ->
+                Text(text = "OEM ID: ${oem.id} | ${oem.name}")
+            }
         }
+
+    }else
+    {
+        Text(text = "No Elements To Show!")
     }
 
 
