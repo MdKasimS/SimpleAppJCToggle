@@ -7,12 +7,17 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mdkasims.jcsimpleapptoggle.models.RetrofitClient
-import com.mdkasims.jcsimpleapptoggle.models.entities.OEM
+import com.mdkasims.jcsimpleapptoggle.models.daos.OemDao
+import com.mdkasims.jcsimpleapptoggle.models.dtos.OemDto
+import com.mdkasims.jcsimpleapptoggle.models.entities.Oem
 import kotlinx.coroutines.launch
 
 
 class CarListViewModel: ViewModel() {
-    var oems by mutableStateOf<List<OEM>>(emptyList())
+    var oems by mutableStateOf<List<OemDto>>(emptyList())
+        private set
+
+    var oemDao by mutableStateOf<OemDao>(null)
         private set
 
     var isLoading by mutableStateOf(false)
@@ -40,6 +45,13 @@ class CarListViewModel: ViewModel() {
             }
         }
     }
+
+    fun addOEM(oem: Oem) {
+        viewModelScope.launch {
+            oemDao.insertOEM(oem)
+        }
+    }
+
 
 
 }

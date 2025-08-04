@@ -31,10 +31,34 @@ fun Greeting(name: String, modifier: Modifier = Modifier, navController: NavCont
         Box( modifier = Modifier
             .padding(16.dp))
         {
-            Button( onClick = {navController.navigate("carlist")} )
+            Button( onClick = {navController.navigate("oemlist")} )
             {
                 Text(
                     text = "Show Me All OEMs",
+                    modifier = modifier
+                )
+            }
+        }
+
+        Box( modifier = Modifier
+            .padding(16.dp))
+        {
+            Button( onClick = {navController.navigate("carlist")} )
+            {
+                Text(
+                    text = "Show Me All Cars",
+                    modifier = modifier
+                )
+            }
+        }
+
+        Box( modifier = Modifier
+            .padding(16.dp))
+        {
+            Button( onClick = {navController.navigate("oemdatalist")} )
+            {
+                Text(
+                    text = "Show Me All Oem Collected Data",
                     modifier = modifier
                 )
             }

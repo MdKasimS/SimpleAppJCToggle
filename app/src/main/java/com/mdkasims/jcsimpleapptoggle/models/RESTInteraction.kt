@@ -1,13 +1,13 @@
 package com.mdkasims.jcsimpleapptoggle.models
 
-import com.mdkasims.jcsimpleapptoggle.models.entities.OEM
+import com.mdkasims.jcsimpleapptoggle.models.dtos.OemDto
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface ApiService {
     @GET("/api/oems")
-    suspend fun getOEMs(): List<OEM>
+    suspend fun getOEMs(): List<OemDto>
 }
 
 object RetrofitClient {
